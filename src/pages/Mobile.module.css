@@ -1,0 +1,56 @@
+.page { padding: 40px 60px 80px; }
+.pageLabel {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 4px 12px;
+  font-size: 11px; font-weight: 600; color: var(--text2);
+  letter-spacing: 0.5px; margin-bottom: 40px;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.sectionHeader { text-align: center; margin-bottom: 48px; }
+.eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 12px; }
+.sectionTitle { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--white); }
+.sectionSub { font-size: 16px; color: var(--text2); max-width: 520px; margin: 12px auto 0; }
+.phonesRow { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+
+/* reuse phone internals */
+.greeting { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
+.name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.cardsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+
+/* AI screen */
+.aiMsg { border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+.aiRole { font-size: 10px; font-weight: 700; margin-bottom: 4px; }
+.aiText { font-size: 11px; color: var(--text2); line-height: 1.6; }
+.quickChips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.chip { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 4px 10px; font-size: 9px; color: var(--text2); }
+.inputRow { display: flex; gap: 8px; align-items: center; }
+.inputBox { flex: 1; background: var(--surface); border-radius: 20px; padding: 8px 14px; font-size: 11px; color: var(--text3); }
+.sendBtn { width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; color: white; }
+
+/* quick actions */
+.quickActions { display: flex; gap: 8px; margin-bottom: 12px; }
+.qa { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 16px; }
+.qaPurple { background: linear-gradient(135deg,rgba(124,58,237,0.2),rgba(124,58,237,0.05)); border-color: rgba(124,58,237,0.3); }
+
+/* fee alert */
+.feeAlert { background: rgba(0,200,150,0.08); border: 1px solid rgba(0,200,150,0.2); border-radius: 10px; padding: 10px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+/* timetable */
+.dayRow { display: flex; gap: 4px; margin-bottom: 12px; }
+.dayBtn { flex: 1; height: 36px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--text2); }
+.dayBtnActive { background: var(--primary); border-color: var(--primary); color: white; }
+.classCard { display: flex; gap: 8px; margin-bottom: 8px; }
+.classBar { width: 3px; border-radius: 2px; flex-shrink: 0; }
+.classInfo { flex: 1; background: var(--surface); border-radius: 8px; padding: 10px; }
+
+/* results */
+.cgpaCard { background: linear-gradient(135deg,rgba(26,107,255,0.2),rgba(0,200,150,0.1)); border: 1px solid rgba(26,107,255,0.3); border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: center; }
+.resultItem { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.resultItem:last-child { border-bottom: none; }
+.gradeChip { width: 28px; height: 28px; border-radius: 7px; background: rgba(0,200,150,0.1); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .page { padding: 30px 20px 60px; }
+  .phonesRow { gap: 16px; }
+}

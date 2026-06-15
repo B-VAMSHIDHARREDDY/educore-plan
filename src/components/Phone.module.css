@@ -1,0 +1,46 @@
+.wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.phone {
+  width: 220px; background: #0D1220;
+  border-radius: 36px; border: 2px solid var(--border);
+  overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.notch { background: #0D1220; padding: 8px 16px 0; display: flex; justify-content: center; }
+.notchBar { width: 80px; height: 20px; background: #000; border-radius: 10px; }
+.screen { background: var(--bg2); }
+.homeBar { background: #0D1220; padding: 8px 16px 16px; display: flex; justify-content: center; }
+.homeIndicator { width: 100px; height: 4px; background: var(--border); border-radius: 2px; }
+.label { font-size: 13px; font-weight: 600; color: var(--text2); }
+
+.header { background: var(--surface); padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
+.headerTitle { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); }
+.headerRight { display: flex; align-items: center; gap: 8px; }
+.body { padding: 12px 14px; }
+.avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); }
+
+.greeting { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
+.name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+
+.cardsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.card { background: var(--surface); border-radius: 10px; padding: 10px; }
+.cardPrimary { border: 1px solid rgba(26,107,255,0.3); background: rgba(26,107,255,0.08); }
+.cardAccent { border: 1px solid rgba(0,200,150,0.3); background: rgba(0,200,150,0.08); }
+.cardIcon { font-size: 16px; margin-bottom: 6px; }
+.cardVal { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); }
+.cardLabel { font-size: 9px; color: var(--text3); }
+.progressBar { height: 4px; background: var(--surface); border-radius: 2px; margin-top: 4px; }
+.progressFill { height: 4px; border-radius: 2px; background: var(--primary); }
+
+.sectionTitle { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+
+.listItem { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.listItem:last-child { border-bottom: none; }
+.listIcon { width: 28px; height: 28px; border-radius: 7px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+.listInfo { flex: 1; }
+.listTitle { font-size: 11px; font-weight: 600; color: var(--text); }
+.listSub { font-size: 9px; color: var(--text3); }
+.listRight { font-size: 10px; color: var(--text3); }
+
+.navBar { display: flex; justify-content: space-around; padding: 10px 8px; border-top: 1px solid var(--border); background: var(--bg3); }
+.navItem { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 8px; color: var(--text3); cursor: pointer; }
+.navItemActive { color: var(--primary); }
+.navIcon { font-size: 16px; }
