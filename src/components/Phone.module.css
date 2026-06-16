@@ -1,60 +1,95 @@
-/* Phone Shell — EduCore Light Theme */
-.wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+/* ── Phone Shell ── */
+.wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
 .phone {
   width: 220px;
-  background: #ECEFF4;
+  background: #E8ECF4;
   border-radius: 36px;
-  border: 2px solid #D8DCE8;
+  border: 2px solid #CDD3E0;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(21,101,192,0.1);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(21,101,192,0.08);
+  flex-shrink: 0;
 }
-.notch { background: #ECEFF4; padding: 8px 16px 0; display: flex; justify-content: center; }
-.notchBar { width: 80px; height: 20px; background: #1A1A1A; border-radius: 10px; }
-.screen { background: #F5F6FA; }
-.homeBar { background: #ECEFF4; padding: 8px 16px 16px; display: flex; justify-content: center; }
-.homeIndicator { width: 100px; height: 4px; background: #C8CCDA; border-radius: 2px; }
-.label { font-size: 13px; font-weight: 600; color: var(--text2); }
 
-/* Header — matches EduCore blue top bar */
-.header { background: var(--primary); padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
-.headerTitle { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #FFFFFF; }
+.notch { background: #E8ECF4; padding: 8px 16px 0; display: flex; justify-content: center; }
+.notchBar { width: 72px; height: 18px; background: #1A1A1A; border-radius: 10px; }
+.screen { background: #F4F6FB; }
+.homeBar { background: #E8ECF4; padding: 6px 16px 14px; display: flex; justify-content: center; }
+.homeIndicator { width: 90px; height: 4px; background: #B0BAD0; border-radius: 2px; }
+.label { font-size: 12px; font-weight: 600; color: var(--text2); text-align: center; }
+
+/* ── Header (blue bar matching EduCore design) ── */
+.header {
+  background: var(--primary);
+  padding: 10px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.headerTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700; color: #FFFFFF;
+}
 .headerRight { display: flex; align-items: center; gap: 8px; }
-.body { padding: 12px 14px; background: #F5F6FA; min-height: 360px; }
-.avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #FFFFFF40, #FFFFFF80); border: 2px solid rgba(255,255,255,0.5); }
 
-/* Greeting */
-.greeting { font-size: 11px; color: var(--text2); margin-bottom: 2px; }
-.name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+/* ── Body ── */
+.body { padding: 12px 12px 4px; background: #F4F6FB; overflow: hidden; }
 
-/* Cards */
-.cardsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-.card { background: #FFFFFF; border-radius: 10px; padding: 10px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-.cardPrimary { border: 1px solid rgba(21,101,192,0.2); background: var(--primary); color: white; }
-.cardAccent { border: 1px solid rgba(46,125,50,0.2); background: var(--accent); color: white; }
-.cardIcon { font-size: 16px; margin-bottom: 6px; }
-.cardVal { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
-.cardPrimary .cardVal, .cardAccent .cardVal { color: #fff; }
-.cardLabel { font-size: 9px; color: var(--text3); }
-.cardPrimary .cardLabel, .cardAccent .cardLabel { color: rgba(255,255,255,0.8); }
-.progressBar { height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; margin-top: 4px; }
-.progressFill { height: 4px; border-radius: 2px; background: #FFFFFF; }
+/* ── Avatar ── */
+.avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: 2px solid rgba(255,255,255,0.6);
+}
 
-/* Section title */
-.sectionTitle { font-size: 10px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; margin-top: 8px; }
+/* ── Cards ── */
+.cardsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.card {
+  background: #FFFFFF; border-radius: 10px; padding: 10px;
+  border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.cardPrimary { background: var(--primary); border-color: var(--primary); }
+.cardAccent  { background: var(--accent);  border-color: var(--accent); }
+.cardIcon    { font-size: 16px; margin-bottom: 4px; }
+.cardVal     { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
+.cardPrimary .cardVal, .cardAccent .cardVal { color: #FFFFFF; }
+.cardLabel   { font-size: 9px; color: var(--text3); }
+.cardPrimary .cardLabel, .cardAccent .cardLabel { color: rgba(255,255,255,0.82); }
+.progressBar { height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px; margin-top: 4px; }
+.progressFill { height: 3px; border-radius: 2px; background: #FFFFFF; }
 
-/* List items */
-.listItem { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+/* ── Section title ── */
+.sectionTitle {
+  font-size: 10px; font-weight: 700; color: var(--text2);
+  text-transform: uppercase; letter-spacing: 0.6px;
+  margin: 8px 0 6px;
+}
+
+/* ── List items ── */
+.listItem {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 0; border-bottom: 1px solid var(--border);
+}
 .listItem:last-child { border-bottom: none; }
-.listIcon { width: 28px; height: 28px; border-radius: 7px; background: var(--primary-lighter); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
-.listInfo { flex: 1; }
-.listTitle { font-size: 11px; font-weight: 600; color: var(--text); }
-.listSub { font-size: 9px; color: var(--text3); margin-top: 1px; }
-.listRight { font-size: 9px; color: var(--text3); font-weight: 500; }
+.listIcon {
+  width: 26px; height: 26px; border-radius: 7px;
+  background: var(--primary-lighter);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; flex-shrink: 0;
+}
+.listInfo { flex: 1; min-width: 0; }
+.listTitle { font-size: 10px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.listSub   { font-size: 8px; color: var(--text3); margin-top: 1px; }
+.listRight { font-size: 9px; color: var(--text3); font-weight: 500; flex-shrink: 0; }
 
-/* Nav bar — matches EduCore bottom nav */
-.navBar { display: flex; justify-content: space-around; padding: 8px 4px 10px; border-top: 1px solid var(--border); background: #FFFFFF; }
-.navItem { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 7px; color: var(--text3); cursor: pointer; font-weight: 500; padding: 2px 4px; border-radius: 6px; }
+/* ── Bottom nav ── */
+.navBar {
+  display: flex; justify-content: space-around;
+  padding: 6px 4px 8px;
+  border-top: 1px solid var(--border);
+  background: #FFFFFF;
+}
+.navItem {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font-size: 7px; color: var(--text3); font-weight: 500;
+}
 .navItemActive { color: var(--primary); }
-.navItemActive .navIconWrap { background: var(--primary-lighter); }
-.navIcon { font-size: 14px; }
-.navIconWrap { width: 28px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 6px; }
+.navIcon { font-size: 13px; }

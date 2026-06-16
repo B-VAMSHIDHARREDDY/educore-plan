@@ -20,7 +20,7 @@
 .content { display: grid; grid-template-columns: 180px 1fr; min-height: 360px; }
 .sidebar { background: var(--bg3); border-right: 1px solid var(--border); padding: 16px 12px; }
 .logo {
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: var(--white);
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: var(--text);
   padding: 8px 8px 16px; border-bottom: 1px solid var(--border); margin-bottom: 12px;
 }
 .logo span { color: var(--primary); }
@@ -32,11 +32,11 @@
 .itemActive { background: rgba(26,107,255,0.15); color: var(--primary); }
 .main { padding: 20px; }
 .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-.pageTitle { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); }
+.pageTitle { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
 .actions { display: flex; gap: 8px; }
 .statsRow { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 16px; }
 .stat { background: var(--surface); border-radius: 8px; padding: 12px; }
-.statVal { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); }
+.statVal { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); }
 .statLabel { font-size: 10px; color: var(--text3); margin-top: 2px; }
 .statChange { font-size: 10px; color: var(--accent); }
 .tableWrap { background: var(--surface); border-radius: 10px; overflow: hidden; }
@@ -61,3 +61,12 @@
 .badge_pending { background: rgba(255,107,53,0.15); color: var(--warn); }
 .badge_paid { background: rgba(26,107,255,0.15); color: var(--primary); }
 .badge_review { background: rgba(255,107,53,0.15); color: var(--warn); }
+@media (max-width: 900px) {
+  .content { grid-template-columns: 140px 1fr; }
+  .statsRow { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 600px) {
+  .content { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .statsRow { grid-template-columns: 1fr 1fr; gap: 8px; }
+}

@@ -1,23 +1,36 @@
-import Phone, { PHeader, PBody, PNavBar, PSectionTitle, PAvatar } from '../components/Phone';
+import Phone, { PHeader, PBody, PNavBar, PSectionTitle } from '../components/Phone';
 import styles from './Mobile.module.css';
 
-/* ── Nav items ── */
-const STUDENT_NAV = [
-  {icon:'🏠',label:'Home'},{icon:'📅',label:'Classes'},{icon:'📖',label:'Learn'},
-  {icon:'📩',label:'Inbox'},{icon:'👤',label:'Profile'}
+const NAV = [
+  {icon:'🏠',label:'Home'}, {icon:'📅',label:'Classes'},
+  {icon:'📖',label:'Learn'}, {icon:'📩',label:'Inbox'}, {icon:'👤',label:'Profile'}
 ];
+const nav = (active) => NAV.map((n,i) => i===active ? {...n,active:true} : n);
 
-/* 01. Dashboard (Home) */
+/* ══════════════════════════════════
+   01 — Dashboard (Home)
+══════════════════════════════════ */
 function DashboardScreen() {
+  const quickItems = [
+    {icon:'📅',label:'Timetable',   bg:'#E3F2FD'},
+    {icon:'✅',label:'Attendance',  bg:'#E8F5E9'},
+    {icon:'📝',label:'Assignments', bg:'#FFF3E0'},
+    {icon:'📋',label:'Exams',       bg:'#F3E5F5'},
+    {icon:'📊',label:'Results',     bg:'#E3F2FD'},
+    {icon:'💳',label:'Fee',         bg:'#FFEBEE'},
+    {icon:'📚',label:'Study Mat.',  bg:'#E8F5E9'},
+    {icon:'📖',label:'Library',     bg:'#FFF3E0'},
+  ];
   return (
     <Phone label="04. Dashboard (Home)">
-      <PHeader title="Hello, Rahul 👋" right={<span style={{fontSize:16,color:'#fff'}}>🔔</span>} />
+      <PHeader title="Hello, Rahul 👋" right={<span style={{fontSize:15}}>🔔</span>} />
       <PBody>
-        <div style={{fontSize:10,color:'var(--text2)',marginBottom:10}}>B.Sc. Computer Science • 2nd Year</div>
-        {/* Today's stats */}
+        <div style={{fontSize:9,color:'var(--text2)',marginBottom:8}}>
+          B.Sc. Computer Science • 2nd Year
+        </div>
         <div className={styles.statsRow}>
           <div className={styles.statCard}>
-            <div className={styles.statVal} style={{color:'var(--accent)'}}>2</div>
+            <div className={styles.statVal}>2</div>
             <div className={styles.statLabel}>Completed</div>
           </div>
           <div className={styles.statCard}>
@@ -25,22 +38,13 @@ function DashboardScreen() {
             <div className={styles.statLabel}>Ongoing</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statVal} style={{color:'var(--text3)'}}>2</div>
+            <div className={styles.statVal}>2</div>
             <div className={styles.statLabel}>Upcoming</div>
           </div>
         </div>
         <PSectionTitle>Quick Access</PSectionTitle>
         <div className={styles.quickGrid}>
-          {[
-            {icon:'📅',label:'Timetable',bg:'#E3F2FD'},
-            {icon:'✅',label:'Attendance',bg:'#E8F5E9'},
-            {icon:'📝',label:'Assignments',bg:'#FFF3E0'},
-            {icon:'📋',label:'Exams',bg:'#F3E5F5'},
-            {icon:'📊',label:'Results',bg:'#E3F2FD'},
-            {icon:'💳',label:'Fee &\nPayments',bg:'#FFEBEE'},
-            {icon:'📚',label:'Study\nMaterial',bg:'#E8F5E9'},
-            {icon:'📖',label:'Library',bg:'#FFF3E0'},
-          ].map(q => (
+          {quickItems.map(q => (
             <div key={q.label} className={styles.qBtn}>
               <div className={styles.qIcon} style={{background:q.bg}}>{q.icon}</div>
               <div className={styles.qLabel}>{q.label}</div>
@@ -53,38 +57,38 @@ function DashboardScreen() {
             <div className={styles.upcomingTitle}>Data Structures</div>
             <div className={styles.upcomingMeta}>10:30 AM – 11:30 AM • Room No. 305</div>
           </div>
-          <div className={styles.viewAll}>›</div>
+          <div className={styles.viewAll}>View&nbsp;›</div>
         </div>
       </PBody>
-      <PNavBar items={[{...STUDENT_NAV[0],active:true},...STUDENT_NAV.slice(1)]} />
+      <PNavBar items={nav(0)} />
     </Phone>
   );
 }
 
-/* 02. Timetable */
+/* ══════════════════════════════════
+   02 — Timetable
+══════════════════════════════════ */
 function TimetableScreen() {
-  const days = [
-    {d:'Mon',n:'20'},{d:'Tue',n:'21'},{d:'Wed',n:'22'},{d:'Thu',n:'23'},{d:'Fri',n:'24'}
-  ];
+  const days = [{d:'Mon',n:'20'},{d:'Tue',n:'21'},{d:'Wed',n:'22'},{d:'Thu',n:'23'},{d:'Fri',n:'24'}];
   const classes = [
-    {color:'#1565C0',time:'9:00 AM',subject:'Mathematics',detail:'Room 205 • Prof. Sharma'},
-    {color:'#2E7D32',time:'10:30 AM',subject:'Data Structures',detail:'Room 305 • Prof. Verma'},
-    {color:'#6A1B9A',time:'12:00 PM',subject:'Digital Electronics',detail:'Room 204 • Prof. Mehta'},
-    {color:'#C62828',time:'2:00 PM',subject:'English',detail:'Room 101 • Prof. Singh'},
-    {color:'#E65100',time:'3:30 PM',subject:'Sports / Activity',detail:'Ground'},
+    {color:'#1565C0', time:'9:00 AM',  subject:'Mathematics',        detail:'Room 205 • Prof. Sharma'},
+    {color:'#2E7D32', time:'10:30 AM', subject:'Data Structures',     detail:'Room 305 • Prof. Verma'},
+    {color:'#6A1B9A', time:'12:00 PM', subject:'Digital Electronics', detail:'Room 204 • Prof. Mehta'},
+    {color:'#C62828', time:'2:00 PM',  subject:'English',             detail:'Room 101 • Prof. Singh'},
+    {color:'#E65100', time:'3:30 PM',  subject:'Sports / Activity',   detail:'Ground'},
   ];
   return (
     <Phone label="05. Timetable">
-      <PHeader title="← Timetable" right={<span style={{color:'#fff',fontSize:16}}>⋯</span>} />
+      <PHeader title="← Timetable" right={<span style={{color:'#fff',fontSize:14}}>⋯</span>} />
       <PBody>
-        <div style={{display:'flex',gap:6,marginBottom:10}}>
-          <div style={{flex:1,background:'var(--primary-lighter)',color:'var(--primary)',borderRadius:6,padding:'4px 0',textAlign:'center',fontSize:10,fontWeight:700}}>Day View</div>
-          <div style={{flex:1,background:'#fff',color:'var(--text2)',borderRadius:6,padding:'4px 0',textAlign:'center',fontSize:10,fontWeight:600,border:'1px solid var(--border)'}}>Week View</div>
+        <div className={styles.viewToggle}>
+          <div className={`${styles.viewBtn} ${styles.viewBtnActive}`}>Day View</div>
+          <div className={styles.viewBtn}>Week View</div>
         </div>
         <div className={styles.dayRow}>
           {days.map((d,i) => (
             <div key={i} className={`${styles.dayBtn} ${i===1?styles.dayBtnActive:''}`}>
-              <span style={{fontSize:8}}>{d.d}</span>
+              <span>{d.d}</span>
               <span className={styles.dayBtnDate}>{d.n}</span>
             </div>
           ))}
@@ -100,28 +104,33 @@ function TimetableScreen() {
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],{...STUDENT_NAV[1],active:true},...STUDENT_NAV.slice(2)]} />
+      <PNavBar items={nav(1)} />
     </Phone>
   );
 }
 
-/* 03. Attendance */
+/* ══════════════════════════════════
+   03 — Attendance
+══════════════════════════════════ */
 function AttendanceScreen() {
+  const r = 30; const circ = 2 * Math.PI * r;
   const subjects = [
-    {name:'Data Structures',pct:92},{name:'Mathematics',pct:85},
-    {name:'Digital Electronics',pct:80},{name:'English',pct:90},
+    {name:'Data Structures',    pct:92, color:'#1565C0'},
+    {name:'Mathematics',        pct:85, color:'#2E7D32'},
+    {name:'Digital Electronics',pct:80, color:'#E65100'},
+    {name:'English',            pct:90, color:'#6A1B9A'},
   ];
   return (
     <Phone label="06. Attendance">
       <PHeader title="Attendance" right={null} />
       <PBody>
-        <div style={{fontSize:10,color:'var(--text2)',marginBottom:8}}>June 2024 ▾</div>
+        <div style={{fontSize:9,color:'var(--text2)',marginBottom:8}}>June 2024 ▾</div>
         <div className={styles.attendanceBig}>
           <div className={styles.circleWrap}>
-            <svg className={styles.circleSvg} viewBox="0 0 64 64">
-              <circle cx="32" cy="32" r="28" fill="none" stroke="#E3F2FD" strokeWidth="6"/>
-              <circle cx="32" cy="32" r="28" fill="none" stroke="#1565C0" strokeWidth="6"
-                strokeDasharray={`${2*Math.PI*28*0.87} ${2*Math.PI*28*(1-0.87)}`}/>
+            <svg className={styles.circleSvg} viewBox="0 0 70 70">
+              <circle cx="35" cy="35" r={r} fill="none" stroke="#E3F2FD" strokeWidth="7"/>
+              <circle cx="35" cy="35" r={r} fill="none" stroke="#1565C0" strokeWidth="7"
+                strokeDasharray={`${circ*0.87} ${circ*0.13}`} strokeLinecap="round"/>
             </svg>
             <div className={styles.circleText}>
               <span className={styles.circleVal}>87%</span>
@@ -129,7 +138,7 @@ function AttendanceScreen() {
             </div>
           </div>
           <div className={styles.attendanceStats}>
-            {[['Total Classes','48'],['Present','42'],['Absent','6']].map(([l,v])=>(
+            {[['Total Classes','48'],['Present','42'],['Absent','6']].map(([l,v]) => (
               <div key={l} className={styles.attStat}>
                 <span className={styles.attStatLabel}>{l}</span>
                 <span className={styles.attStatVal}>{v}</span>
@@ -138,38 +147,42 @@ function AttendanceScreen() {
           </div>
         </div>
         <PSectionTitle>Subject Wise</PSectionTitle>
-        {subjects.map(s=>(
+        {subjects.map(s => (
           <div key={s.name} className={styles.subjectBar}>
             <div className={styles.subjectBarLabel}>
               <span>{s.name}</span><span>{s.pct}%</span>
             </div>
-            <div className={styles.barTrack}><div className={styles.barFill} style={{width:`${s.pct}%`}}/></div>
+            <div className={styles.barTrack}>
+              <div className={styles.barFill} style={{width:`${s.pct}%`, background:s.color}} />
+            </div>
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],...STUDENT_NAV.slice(1,4),{...STUDENT_NAV[4],active:true}]} />
+      <PNavBar items={nav(4)} />
     </Phone>
   );
 }
 
-/* 04. Assignments */
+/* ══════════════════════════════════
+   04 — Assignments
+══════════════════════════════════ */
 function AssignmentsScreen() {
-  const assignments = [
-    {sub:'Data Structures',title:'Linked List Implementation',due:'25 Jun 2024',pts:'10 Points'},
-    {sub:'Mathematics',title:'Calculus Problem Set',due:'28 Jun 2024',pts:'15 Points'},
-    {sub:'Digital Electronics',title:'Lab Report - 3',due:'30 Jun 2024',pts:'10 Points'},
-    {sub:'English',title:'Essay Writing',due:'02 Jul 2024',pts:'10 Points'},
+  const list = [
+    {sub:'Data Structures',    title:'Linked List Implementation', due:'25 Jun 2024', pts:'10 Points'},
+    {sub:'Mathematics',        title:'Calculus Problem Set',       due:'28 Jun 2024', pts:'15 Points'},
+    {sub:'Digital Electronics',title:'Lab Report - 3',             due:'30 Jun 2024', pts:'10 Points'},
+    {sub:'English',            title:'Essay Writing',              due:'02 Jul 2024', pts:'10 Points'},
   ];
   return (
     <Phone label="07. Assignments">
       <PHeader title="Assignments" right={null} />
       <PBody>
         <div className={styles.tabRow}>
-          {['All','Pending','Submitted'].map((t,i)=>(
+          {['All','Pending','Submitted'].map((t,i) => (
             <div key={t} className={`${styles.tab} ${i===1?styles.tabActive:''}`}>{t}</div>
           ))}
         </div>
-        {assignments.map(a=>(
+        {list.map(a => (
           <div key={a.title} className={styles.assignCard}>
             <div className={styles.assignSubject}>{a.sub}</div>
             <div className={styles.assignTitle}>{a.title}</div>
@@ -180,97 +193,101 @@ function AssignmentsScreen() {
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],STUDENT_NAV[1],{...STUDENT_NAV[2],active:true},...STUDENT_NAV.slice(3)]} />
+      <PNavBar items={nav(2)} />
     </Phone>
   );
 }
 
-/* 05. Study Material */
+/* ══════════════════════════════════
+   05 — Study Material
+══════════════════════════════════ */
 function StudyMaterialScreen() {
-  const materials = [
-    {icon:'📄',sub:'Data Structures',title:'Lecture Notes',meta:'PDF • 2.4 MB'},
-    {icon:'📄',sub:'Mathematics',title:'Calculus Formulas',meta:'PDF • 1.2 MB'},
-    {icon:'📄',sub:'Digital Electronics',title:'Semiconductor Notes',meta:'PDF • 1.8 MB'},
-    {icon:'📄',sub:'English',title:'Language Guide',meta:'PDF • 1.1 MB'},
+  const list = [
+    {sub:'Data Structures',     title:'Lecture Notes',       meta:'PDF • 2.4 MB'},
+    {sub:'Mathematics',         title:'Calculus Formulas',   meta:'PDF • 1.2 MB'},
+    {sub:'Digital Electronics', title:'Semiconductor Notes', meta:'PDF • 1.8 MB'},
+    {sub:'English',             title:'Language Guide',      meta:'PDF • 1.1 MB'},
   ];
   return (
     <Phone label="08. Study Material">
       <PHeader title="Study Material" right={null} />
       <PBody>
         <div className={styles.searchBox}>
-          <span style={{fontSize:12,color:'var(--text3)'}}>🔍</span>
+          <span style={{fontSize:11,color:'var(--text3)'}}>🔍</span>
           <div className={styles.searchInput}>Search materials...</div>
         </div>
         <div className={styles.filterRow}>
-          {['All','Notes','PPT','Reference','Video'].map((f,i)=>(
+          {['All','Notes','PPT','Reference','Video'].map((f,i) => (
             <div key={f} className={`${styles.filterChip} ${i===0?styles.filterChipActive:''}`}>{f}</div>
           ))}
         </div>
-        {materials.map(m=>(
+        {list.map(m => (
           <div key={m.title} className={styles.materialItem}>
-            <div className={styles.materialIcon}>{m.icon}</div>
+            <div className={styles.materialIcon}>📄</div>
             <div className={styles.materialInfo}>
-              <div className={styles.materialTitle}>{m.sub}</div>
-              <div className={styles.materialMeta}>{m.title}</div>
+              <div className={styles.materialSubject}>{m.sub}</div>
+              <div className={styles.materialTitle}>{m.title}</div>
               <div className={styles.materialMeta}>{m.meta}</div>
             </div>
             <span className={styles.arrowIcon}>›</span>
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],STUDENT_NAV[1],{...STUDENT_NAV[2],active:true},...STUDENT_NAV.slice(3)]} />
+      <PNavBar items={nav(2)} />
     </Phone>
   );
 }
 
-/* 06. Exams */
+/* ══════════════════════════════════
+   06 — Exams
+══════════════════════════════════ */
 function ExamsScreen() {
-  const exams = [
-    {sub:'Data Structures',name:'Unit Test - 2',date:'25 Jun 2024 • 10:00 AM',room:'Room 305',days:'3 Days Left',urgent:true},
-    {sub:'Mathematics',name:'Mid Term Exam',date:'01 Jul 2024 • 10:00 AM',room:'Room 203',days:'9 Days Left',urgent:false},
-    {sub:'Digital Electronics',name:'End Sem Exam',date:'15 Jul 2024 • 09:30 AM',room:'Hall - A',days:'23 Days Left',urgent:false},
+  const list = [
+    {sub:'Data Structures',     name:'Unit Test - 2',    date:'25 Jun 2024 • 10:00 AM', room:'Room 305', days:'3 Days Left',  soon:true },
+    {sub:'Mathematics',         name:'Mid Term Exam',    date:'01 Jul 2024 • 10:00 AM', room:'Room 203', days:'9 Days Left',  soon:false},
+    {sub:'Digital Electronics', name:'End Sem Exam',     date:'15 Jul 2024 • 09:30 AM', room:'Hall - A', days:'23 Days Left', soon:false},
   ];
   return (
     <Phone label="09. Exams">
       <PHeader title="Exams" right={null} />
       <PBody>
-        <div className={styles.examTabRow}>
-          {['Upcoming','Completed'].map((t,i)=>(
+        <div className={styles.tabRow}>
+          {['Upcoming','Completed'].map((t,i) => (
             <div key={t} className={`${styles.tab} ${i===0?styles.tabActive:''}`}>{t}</div>
           ))}
         </div>
-        {exams.map(e=>(
+        {list.map(e => (
           <div key={e.name} className={styles.examCard}>
             <div className={styles.examSubject}>{e.sub}</div>
             <div className={styles.examName}>{e.name}</div>
-            <div style={{fontSize:9,color:'var(--text3)',marginTop:2}}>{e.date}</div>
-            <div style={{fontSize:9,color:'var(--text3)'}}>{e.room}</div>
+            <div className={styles.examDate}>{e.date} • {e.room}</div>
             <div className={styles.examMeta}>
-              <span className={styles.examDate}></span>
-              <span className={`${styles.daysLeft} ${e.urgent?styles.daysLeftSoon:''}`}>{e.days}</span>
+              <span className={`${styles.daysLeft} ${e.soon?styles.daysLeftSoon:''}`}>{e.days}</span>
             </div>
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],STUDENT_NAV[1],{...STUDENT_NAV[2],active:true},...STUDENT_NAV.slice(3)]} />
+      <PNavBar items={nav(2)} />
     </Phone>
   );
 }
 
-/* 07. Results */
+/* ══════════════════════════════════
+   07 — Results
+══════════════════════════════════ */
 function ResultsScreen() {
-  const results = [
-    {sub:'Data Structures',grade:'A',gradeClass:''},
-    {sub:'Mathematics',grade:'A-',gradeClass:''},
-    {sub:'Digital Electronics',grade:'B+',gradeClass:styles.gradeChipB},
-    {sub:'English',grade:'A',gradeClass:''},
-    {sub:'Environmental Science',grade:'A-',gradeClass:''},
+  const list = [
+    {sub:'Data Structures',    grade:'A',  gpa:'9.0', isB:false},
+    {sub:'Mathematics',        grade:'A-', gpa:'8.5', isB:false},
+    {sub:'Digital Electronics',grade:'B+', gpa:'8.0', isB:true },
+    {sub:'English',            grade:'A',  gpa:'9.0', isB:false},
+    {sub:'Env. Science',       grade:'A-', gpa:'8.5', isB:false},
   ];
   return (
     <Phone label="10. Results">
       <PHeader title="Results" right={null} />
       <PBody>
-        <div style={{fontSize:10,color:'var(--text2)',marginBottom:8}}>Semester 2 ▾</div>
+        <div style={{fontSize:9,color:'var(--text2)',marginBottom:8}}>Semester 2 ▾</div>
         <div className={styles.sgpaCard}>
           <div>
             <div className={styles.sgpaLabel}>SGPA</div>
@@ -278,75 +295,85 @@ function ResultsScreen() {
           </div>
           <div className={styles.gradeCircle}>A</div>
         </div>
-        <PSectionTitle>Subject &nbsp; Grade</PSectionTitle>
-        {results.map(r=>(
+        <div style={{display:'flex',justifyContent:'space-between',marginBottom:6}}>
+          <span style={{fontSize:10,fontWeight:700,color:'var(--text2)'}}>Subject</span>
+          <span style={{fontSize:10,fontWeight:700,color:'var(--text2)'}}>Grade</span>
+        </div>
+        {list.map(r => (
           <div key={r.sub} className={styles.resultItem}>
-            <div className={`${styles.gradeChip} ${r.gradeClass}`}>{r.grade}</div>
-            <div>
+            <div className={styles.resultLeft}>
+              <div className={`${styles.gradeChip} ${r.isB?styles.gradeChipB:''}`}>{r.grade}</div>
               <div className={styles.subjectName}>{r.sub}</div>
             </div>
+            <div className={styles.subjectGrade}>{r.gpa}</div>
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],STUDENT_NAV[1],{...STUDENT_NAV[2],active:true},...STUDENT_NAV.slice(3)]} />
+      <PNavBar items={nav(2)} />
     </Phone>
   );
 }
 
-/* 08. Fee & Payments */
+/* ══════════════════════════════════
+   08 — Fee & Payments
+══════════════════════════════════ */
 function FeeScreen() {
   const history = [
-    {label:'Tuition Fee',date:'10 Jan 2024',amt:'₹ 12,500'},
-    {label:'Library Fee',date:'12 Jan 2024',amt:'₹ 2,000'},
-    {label:'Lab Fee',date:'15 Jan 2024',amt:'₹ 4,000'},
+    {label:'Tuition Fee', date:'10 Jan 2024', amt:'₹ 12,500'},
+    {label:'Library Fee', date:'12 Jan 2024', amt:'₹ 2,000'},
+    {label:'Lab Fee',     date:'15 Jan 2024', amt:'₹ 4,000'},
   ];
   return (
     <Phone label="11. Fee & Payments">
       <PHeader title="Fee & Payments" right={null} />
       <PBody>
-        <div style={{fontSize:10,color:'var(--text2)',marginBottom:8}}>Current Semester ▾</div>
+        <div style={{fontSize:9,color:'var(--text2)',marginBottom:8}}>Current Semester ▾</div>
         <div className={styles.feeCard}>
           <div className={styles.feeRow}>
             <div>
               <div className={styles.feeLabel}>Total Fee</div>
               <div className={styles.feeAmt}>₹ 24,500</div>
             </div>
-            <div>
+            <div style={{textAlign:'right'}}>
               <div className={styles.feeLabel}>Paid ✓</div>
               <div className={styles.feeAmt}>₹ 18,500</div>
             </div>
           </div>
-          <div style={{fontSize:9,opacity:0.8,marginBottom:6}}>Due Amount: <strong>₹ 6,000</strong></div>
+          <div className={styles.feeDue}>
+            Due Amount: <span className={styles.feeDueAmt}>₹ 6,000</span>
+          </div>
           <div className={styles.payNowBtn}>Pay Now</div>
         </div>
         <PSectionTitle>Payment History</PSectionTitle>
-        {history.map(h=>(
+        {history.map(h => (
           <div key={h.label} className={styles.payHistItem}>
-            <div>
+            <div className={styles.payHistLeft}>
               <div className={styles.payHistLabel}>{h.label}</div>
               <div className={styles.payHistDate}>{h.date}</div>
             </div>
-            <div style={{display:'flex',alignItems:'center',gap:6}}>
-              <span style={{fontSize:10,fontWeight:700,color:'var(--text)'}}>{h.amt}</span>
+            <div className={styles.payHistRight}>
+              <span className={styles.payHistAmt}>{h.amt}</span>
               <span className={styles.paidBadge}>Paid</span>
             </div>
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],STUDENT_NAV[1],{...STUDENT_NAV[2],active:true},...STUDENT_NAV.slice(3)]} />
+      <PNavBar items={nav(2)} />
     </Phone>
   );
 }
 
-/* 09. Profile */
+/* ══════════════════════════════════
+   09 — Profile
+══════════════════════════════════ */
 function ProfileScreen() {
   const links = [
-    {icon:'👤',label:'Personal Details'},
-    {icon:'🎓',label:'Academic Details'},
-    {icon:'🪪',label:'Download ID Card'},
-    {icon:'🔒',label:'Change Password'},
-    {icon:'⚙️',label:'Settings'},
-    {icon:'❓',label:'Help & Support'},
+    {icon:'👤', label:'Personal Details'},
+    {icon:'🎓', label:'Academic Details'},
+    {icon:'🪪', label:'Download ID Card'},
+    {icon:'🔒', label:'Change Password'},
+    {icon:'⚙️', label:'Settings'},
+    {icon:'❓', label:'Help & Support'},
   ];
   return (
     <Phone label="12. Profile">
@@ -359,40 +386,46 @@ function ProfileScreen() {
           <div className={styles.profileMeta}>2nd Year • Roll No: CSE20125</div>
         </div>
         <PSectionTitle>Quick Links</PSectionTitle>
-        {links.map(l=>(
+        {links.map(l => (
           <div key={l.label} className={styles.profileMenuItem}>
-            <span className={styles.profileMenuLabel}><span>{l.icon}</span>{l.label}</span>
+            <span className={styles.profileMenuLabel}>
+              <span>{l.icon}</span>{l.label}
+            </span>
             <span style={{fontSize:12,color:'var(--text3)'}}>›</span>
           </div>
         ))}
         <div className={`${styles.profileMenuItem} ${styles.logoutItem}`}>
-          <span className={styles.profileMenuLabel} style={{color:'var(--red)'}}><span>🚪</span>Logout</span>
+          <span className={`${styles.profileMenuLabel} ${styles.logoutText}`}>
+            <span>🚪</span>Logout
+          </span>
           <span style={{fontSize:12,color:'var(--red)'}}>›</span>
         </div>
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],...STUDENT_NAV.slice(1,4),{...STUDENT_NAV[4],active:true}]} />
+      <PNavBar items={nav(4)} />
     </Phone>
   );
 }
 
-/* 10. Inbox / Notifications */
+/* ══════════════════════════════════
+   10 — Inbox / Notifications
+══════════════════════════════════ */
 function InboxScreen() {
   const messages = [
-    {icon:'📢',bg:'#E3F2FD',sender:'College Announcement',text:'Class test schedule for this week is updated.',time:'10:30 AM'},
-    {icon:'📋',bg:'#E8F5E9',sender:'Examination Cell',text:'Your exam form has been submitted successfully.',time:'09:15 AM'},
-    {icon:'📚',bg:'#FFF3E0',sender:'Library',text:'New book "Data Structures in C++" is available now.',time:'Yesterday'},
-    {icon:'💼',bg:'#F3E5F5',sender:'Placement Cell',text:'Infosys is coming for campus drive on 20th July.',time:'2 days ago'},
+    {icon:'📢', bg:'#E3F2FD', sender:'College Announcement', text:'Class test schedule for this week is updated.',           time:'10:30 AM'},
+    {icon:'📋', bg:'#E8F5E9', sender:'Examination Cell',     text:'Your exam form has been submitted successfully.',          time:'09:15 AM'},
+    {icon:'📚', bg:'#FFF3E0', sender:'Library',              text:'New book "Data Structures in C++" is available now.',      time:'Yesterday'},
+    {icon:'💼', bg:'#F3E5F5', sender:'Placement Cell',       text:'Infosys is coming for campus drive on 20th July.',         time:'2 days ago'},
   ];
   return (
     <Phone label="13. Inbox / Notifications">
       <PHeader title="Inbox" right={null} />
       <PBody>
-        <div className={styles.inboxTabRow}>
-          {['All','Announcements','Messages'].map((t,i)=>(
+        <div className={styles.tabRow}>
+          {['All','Announcements','Messages'].map((t,i) => (
             <div key={t} className={`${styles.tab} ${i===0?styles.tabActive:''}`}>{t}</div>
           ))}
         </div>
-        {messages.map(m=>(
+        {messages.map(m => (
           <div key={m.sender} className={styles.messageItem}>
             <div className={styles.messageHeader}>
               <div className={styles.messageIcon} style={{background:m.bg}}>{m.icon}</div>
@@ -403,12 +436,14 @@ function InboxScreen() {
           </div>
         ))}
       </PBody>
-      <PNavBar items={[STUDENT_NAV[0],...STUDENT_NAV.slice(1,3),{...STUDENT_NAV[3],active:true},STUDENT_NAV[4]]} />
+      <PNavBar items={nav(3)} />
     </Phone>
   );
 }
 
-/* ── Page Export ── */
+/* ══════════════════════════════════
+   PAGE
+══════════════════════════════════ */
 export default function Mobile() {
   return (
     <div className={`${styles.page} page-enter`}>

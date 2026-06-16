@@ -9,6 +9,7 @@ import AIFeatures from './pages/AIFeatures';
 import Mobile from './pages/Mobile';
 import Revenue from './pages/Revenue';
 import './index.css';
+import './App.css';
 
 const pages = {
   overview: Overview,
@@ -34,7 +35,7 @@ export default function App() {
     <>
       <Navbar activePage={activePage} onNavigate={navigate} />
       <Sidebar activePage={activePage} onNavigate={navigate} />
-      <main style={{ marginLeft: 220, paddingTop: 64 }}>
+      <main className="app-main">
         <PageComponent key={activePage} onNavigate={navigate} />
       </main>
     </>

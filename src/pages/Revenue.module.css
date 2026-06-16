@@ -9,7 +9,7 @@
 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .sectionHeader { text-align: center; margin-bottom: 48px; }
 .eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 12px; }
-.sectionTitle { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--white); line-height: 1.2; }
+.sectionTitle { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--text); line-height: 1.2; }
 .sectionSub { font-size: 16px; color: var(--text2); max-width: 520px; margin: 12px auto 0; }
 
 .revGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
@@ -19,12 +19,12 @@
 .revUpsell { background: linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,200,150,0.05)); border: 1px solid rgba(0,200,150,0.3); }
 .revIcon { font-size: 36px; margin-bottom: 16px; }
 .revLabel { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 8px; }
-.revTitle { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.revTitle { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
 .revDesc { font-size: 13px; color: var(--text2); line-height: 1.6; }
 .revExtra { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
 .pricingGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .priceBox { background: rgba(26,107,255,0.1); border-radius: 8px; padding: 10px; text-align: center; }
-.priceVal { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); }
+.priceVal { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
 .priceSub { font-size: 10px; color: var(--text3); }
 .adBox { background: rgba(255,107,53,0.1); border-radius: 8px; padding: 12px; text-align: center; font-size: 12px; color: var(--text2); line-height: 1.6; }
 .upsellList { list-style: none; display: flex; flex-direction: column; gap: 6px; }
@@ -42,14 +42,15 @@
 }
 .flywheelItem { text-align: center; flex: 1; min-width: 120px; position: relative; }
 .flywheelIcon { font-size: 36px; margin-bottom: 10px; }
-.flywheelTitle { font-weight: 700; color: var(--white); font-size: 14px; margin-bottom: 4px; }
+.flywheelTitle { font-weight: 700; color: var(--text); font-size: 14px; margin-bottom: 4px; }
 .flywheelSub { font-size: 12px; color: var(--text3); }
 .arrow { position: absolute; top: 50%; right: -16px; transform: translateY(-50%); font-size: 24px; color: var(--primary); }
 
 .impactGrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
 .impactCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; text-align: center; }
 .impactIcon { font-size: 32px; margin-bottom: 16px; }
-.impactVal { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: var(--white); }
+.impactVal { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: var(--text); }
+
 .impactLabel { font-size: 13px; color: var(--text2); margin-top: 4px; }
 .impactSub { font-size: 11px; color: var(--text3); margin-top: 8px; }
 
@@ -59,4 +60,13 @@
   .impactGrid { grid-template-columns: 1fr 1fr; }
   .flywheel { flex-direction: column; gap: 20px; }
   .arrow { transform: rotate(90deg); position: static; }
+}
+@media (max-width: 600px) {
+  .page { padding: 20px 12px 48px; }
+  .sectionTitle { font-size: 22px; }
+  .revGrid { grid-template-columns: 1fr; }
+  .impactGrid { grid-template-columns: 1fr 1fr; }
+  .pricingGrid { grid-template-columns: 1fr; }
+  .revCard { padding: 20px; }
+  .flywheel { padding: 20px; }
 }

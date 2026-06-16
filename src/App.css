@@ -1,2 +1,20 @@
-/* Reset app-level */
 #root { min-height: 100vh; }
+
+.app-main {
+  margin-left: 220px;
+  padding-top: 64px;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+@media (max-width: 900px) {
+  .app-main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-main {
+    padding-top: 56px;
+  }
+}
