@@ -1,46 +1,60 @@
+/* Phone Shell — EduCore Light Theme */
 .wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .phone {
-  width: 220px; background: #0D1220;
-  border-radius: 36px; border: 2px solid var(--border);
-  overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  width: 220px;
+  background: #ECEFF4;
+  border-radius: 36px;
+  border: 2px solid #D8DCE8;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(21,101,192,0.1);
 }
-.notch { background: #0D1220; padding: 8px 16px 0; display: flex; justify-content: center; }
-.notchBar { width: 80px; height: 20px; background: #000; border-radius: 10px; }
-.screen { background: var(--bg2); }
-.homeBar { background: #0D1220; padding: 8px 16px 16px; display: flex; justify-content: center; }
-.homeIndicator { width: 100px; height: 4px; background: var(--border); border-radius: 2px; }
+.notch { background: #ECEFF4; padding: 8px 16px 0; display: flex; justify-content: center; }
+.notchBar { width: 80px; height: 20px; background: #1A1A1A; border-radius: 10px; }
+.screen { background: #F5F6FA; }
+.homeBar { background: #ECEFF4; padding: 8px 16px 16px; display: flex; justify-content: center; }
+.homeIndicator { width: 100px; height: 4px; background: #C8CCDA; border-radius: 2px; }
 .label { font-size: 13px; font-weight: 600; color: var(--text2); }
 
-.header { background: var(--surface); padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
-.headerTitle { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); }
+/* Header — matches EduCore blue top bar */
+.header { background: var(--primary); padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
+.headerTitle { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #FFFFFF; }
 .headerRight { display: flex; align-items: center; gap: 8px; }
-.body { padding: 12px 14px; }
-.avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); }
+.body { padding: 12px 14px; background: #F5F6FA; min-height: 360px; }
+.avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #FFFFFF40, #FFFFFF80); border: 2px solid rgba(255,255,255,0.5); }
 
-.greeting { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
-.name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+/* Greeting */
+.greeting { font-size: 11px; color: var(--text2); margin-bottom: 2px; }
+.name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
 
+/* Cards */
 .cardsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-.card { background: var(--surface); border-radius: 10px; padding: 10px; }
-.cardPrimary { border: 1px solid rgba(26,107,255,0.3); background: rgba(26,107,255,0.08); }
-.cardAccent { border: 1px solid rgba(0,200,150,0.3); background: rgba(0,200,150,0.08); }
+.card { background: #FFFFFF; border-radius: 10px; padding: 10px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.cardPrimary { border: 1px solid rgba(21,101,192,0.2); background: var(--primary); color: white; }
+.cardAccent { border: 1px solid rgba(46,125,50,0.2); background: var(--accent); color: white; }
 .cardIcon { font-size: 16px; margin-bottom: 6px; }
-.cardVal { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); }
+.cardVal { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
+.cardPrimary .cardVal, .cardAccent .cardVal { color: #fff; }
 .cardLabel { font-size: 9px; color: var(--text3); }
-.progressBar { height: 4px; background: var(--surface); border-radius: 2px; margin-top: 4px; }
-.progressFill { height: 4px; border-radius: 2px; background: var(--primary); }
+.cardPrimary .cardLabel, .cardAccent .cardLabel { color: rgba(255,255,255,0.8); }
+.progressBar { height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; margin-top: 4px; }
+.progressFill { height: 4px; border-radius: 2px; background: #FFFFFF; }
 
-.sectionTitle { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+/* Section title */
+.sectionTitle { font-size: 10px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; margin-top: 8px; }
 
+/* List items */
 .listItem { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
 .listItem:last-child { border-bottom: none; }
-.listIcon { width: 28px; height: 28px; border-radius: 7px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+.listIcon { width: 28px; height: 28px; border-radius: 7px; background: var(--primary-lighter); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
 .listInfo { flex: 1; }
 .listTitle { font-size: 11px; font-weight: 600; color: var(--text); }
-.listSub { font-size: 9px; color: var(--text3); }
-.listRight { font-size: 10px; color: var(--text3); }
+.listSub { font-size: 9px; color: var(--text3); margin-top: 1px; }
+.listRight { font-size: 9px; color: var(--text3); font-weight: 500; }
 
-.navBar { display: flex; justify-content: space-around; padding: 10px 8px; border-top: 1px solid var(--border); background: var(--bg3); }
-.navItem { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 8px; color: var(--text3); cursor: pointer; }
+/* Nav bar — matches EduCore bottom nav */
+.navBar { display: flex; justify-content: space-around; padding: 8px 4px 10px; border-top: 1px solid var(--border); background: #FFFFFF; }
+.navItem { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 7px; color: var(--text3); cursor: pointer; font-weight: 500; padding: 2px 4px; border-radius: 6px; }
 .navItemActive { color: var(--primary); }
-.navIcon { font-size: 16px; }
+.navItemActive .navIconWrap { background: var(--primary-lighter); }
+.navIcon { font-size: 14px; }
+.navIconWrap { width: 28px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 6px; }
